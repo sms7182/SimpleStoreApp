@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using StoreApp.ApplicationService.CommandQueryHandlers.Items.ServiceBuilder;
+using StoreApp.ApplicationService.CommandQueryHandlers.Orders.ServiceBuilder;
+using StoreApp.ApplicationService.CommandQueryHandlers.ServiceBuilder;
 using StoreApp.ApplicationService.Configurations;
 using StoreApp.Data.Configuration;
 using System;
@@ -32,9 +35,11 @@ namespace StoreApp.Api
 
 
             services.AddDataBaseConfiguration(Configuration);
-            services.AddSignalR();
-
           
+            services.AddScoped<ICreateItemService, CreateItemService>();
+            services.AddScoped<ICreateOrderService, CreateOrderService>();
+            services.AddScoped<IUpdateItemService, UpdateItemService>();
+
             services.AddApplicationServices(Configuration);
             services.AddCors(options =>
             {

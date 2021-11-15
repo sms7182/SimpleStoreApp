@@ -7,28 +7,19 @@ using System.Text;
 
 namespace StoreApp.Data.Configuration.Base
 {
-    public static class AddMSSqlConfiguration
+    public static class AddPostgresSqlConfiguration
     {
-        public static IServiceCollection AddSqlWrite<T>(this IServiceCollection services, IConfiguration configuration) where T : DbContext
+        public static IServiceCollection AddPostgresWrite<T>(this IServiceCollection services, IConfiguration configuration) where T : DbContext
         {
-            services.AddEntityFrameworkSqlServer().AddDbContext<T>(options =>
+            services.AddEntityFrameworkNpgsql().AddDbContext<T>(options =>
             {
-                options.UseSqlServer(configuration["messageDBConnection"], d => d.MigrationsAssembly(typeof(T).Assembly.GetName().Name));
+                options.UseNpgsql(configuration["storeDBConnection"], d => d.MigrationsAssembly(typeof(T).Assembly.GetName().Name));
             });
 
             return services;
 
         }
 
-        public static IServiceCollection AddSqlRead<T>(this IServiceCollection services, IConfiguration configuration) where T : DbContext
-        {
-            services.AddEntityFrameworkSqlServer().AddDbContext<T>(options =>
-            {
-                options.UseSqlServer(configuration["readmessageDBConnection"], d => d.MigrationsAssembly(typeof(T).Assembly.GetName().Name));
-            });
-
-            return services;
-
-        }
+       
     }
 }

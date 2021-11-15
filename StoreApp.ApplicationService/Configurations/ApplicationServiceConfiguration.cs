@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StoreApp.ApplicationService.CommandQueryHandlers.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,9 @@ namespace StoreApp.ApplicationService.Configurations
         }
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
-          //  services.AddMediatR(typeof(GetMessageQueryHandler));
+            services.AddMediatR(typeof(CreateItemCommandHandler));
 
-//            services.AddMediatorHandlers(typeof(GetMessageQueryHandler).Assembly);
+            services.AddMediatorHandlers(typeof(CreateItemCommandHandler).Assembly);
 
             return services;
         }

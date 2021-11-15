@@ -13,7 +13,7 @@ namespace StoreApp.Data.UnitOfWorks.Base
         private bool disposed = false;
         public BaseWriteUnitOfWork(DbContext dbContext, IServiceProvider serviceProvider) 
         {
-        
+            context = dbContext;
         }
 
         public DbContext context;

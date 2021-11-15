@@ -15,13 +15,13 @@ namespace StoreApp.ApplicationService.CommandQueryHandlers.ServiceBuilder
     public class CreateOrderService : ICreateOrderService,IAddOrderItem,ICalculatePrice,IValidateAndBuildOrder
     {
         
-        IItemRepository itemRepository;
+        IStoreUnitOfWork storeUnitOfWork;
      
         Order order;
         List<Guid> itemNotFound;
-        public CreateOrderService(IItemRepository _itemRepository)
+        public CreateOrderService(IStoreUnitOfWork _storeUnitOfWork)
         {
-            itemRepository = _itemRepository;
+            storeUnitOfWork = _storeUnitOfWork;
             itemNotFound = new List<Guid>();
             
         }
@@ -39,7 +39,7 @@ namespace StoreApp.ApplicationService.CommandQueryHandlers.ServiceBuilder
        
         public async Task<IValidateAndBuildOrder> CalculatePrice()
         {
-
+            var itemRepository = storeUnitOfWork.ItemRepository;
             var itemQuerale = await itemRepository.Find(f => order.OrderItems.Select(d=>d.ItemId).Contains(f.Id));
            var items= itemQuerale.ToList();
             decimal price = 0;
