@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Api", "StoreApp.Api\StoreApp.Api.csproj", "{2C32DB8A-1FDA-4EED-A6BD-053EBF5B8EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp.Api", "StoreApp.Api\StoreApp.Api.csproj", "{2C32DB8A-1FDA-4EED-A6BD-053EBF5B8EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Domain", "StoreApp.Domain\StoreApp.Domain.csproj", "{4EF5878F-5741-4FAD-B276-719F23690E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp.Domain", "StoreApp.Domain\StoreApp.Domain.csproj", "{4EF5878F-5741-4FAD-B276-719F23690E83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Data", "StoreApp.Data\StoreApp.Data.csproj", "{4845F441-92DC-4509-B887-5CF8F8E8DC0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp.Data", "StoreApp.Data\StoreApp.Data.csproj", "{4845F441-92DC-4509-B887-5CF8F8E8DC0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.ApplicationService", "StoreApp.ApplicationService\StoreApp.ApplicationService.csproj", "{58E8A1CD-FFA0-4BBC-B366-7C8E9E47184B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp.ApplicationService", "StoreApp.ApplicationService\StoreApp.ApplicationService.csproj", "{58E8A1CD-FFA0-4BBC-B366-7C8E9E47184B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Contracts", "StoreApp.Contracts\StoreApp.Contracts.csproj", "{2BCB0DE8-B728-4B08-8451-A54577E7AF85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp.Contracts", "StoreApp.Contracts\StoreApp.Contracts.csproj", "{2BCB0DE8-B728-4B08-8451-A54577E7AF85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Test", "StoreApp.Test\StoreApp.Test.csproj", "{6B4F9B02-3A7B-473A-8C8A-0FFD7E9B62B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2BCB0DE8-B728-4B08-8451-A54577E7AF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BCB0DE8-B728-4B08-8451-A54577E7AF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BCB0DE8-B728-4B08-8451-A54577E7AF85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B4F9B02-3A7B-473A-8C8A-0FFD7E9B62B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B4F9B02-3A7B-473A-8C8A-0FFD7E9B62B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B4F9B02-3A7B-473A-8C8A-0FFD7E9B62B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B4F9B02-3A7B-473A-8C8A-0FFD7E9B62B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
