@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StoreApp.Domain.BusinessEntities.Customers;
 using StoreApp.Domain.BusinessEntities.Items;
 using StoreApp.Domain.BusinessEntities.Orders;
 using System;
@@ -15,11 +16,15 @@ namespace StoreApp.Data.Configuration
         }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Item> Items { get; set; }
+
+
+        public DbSet<Customer> Customers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
             modelBuilder.ApplyConfiguration(new OrderItemEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ItemEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerEntityConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

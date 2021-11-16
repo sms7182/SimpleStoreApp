@@ -24,15 +24,25 @@ namespace StoreApp.Api.Controllers
             mediator = _mediator;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<OrderResponseDto>> CreateItem([FromBody] OrderRequestDto itemRequestDto)
+        [HttpPost("createOrder")]
+        public async Task<ActionResult<OrderResponseDto>> CreateOrder([FromBody] OrderRequestDto orderRequestDto)
         {
             var result = await mediator.Send(new CreateOrderCommand()
             {
-                RequestDto = itemRequestDto
+                RequestDto = orderRequestDto
             });
             return result;
 
+        }
+
+        [HttpPost("getorderwithcustomer")]
+        public async Task<ActionResult<GetOrderResponseDto>> GetOrderWithCustomer([FromBody]GetOrderRequestDto orderRequestDto)
+        {
+            var result = await mediator.Send(new GetOrderQuery()
+            {
+                RequestDto = orderRequestDto
+            });
+            return result;
         }
 
     }

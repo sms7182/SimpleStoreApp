@@ -21,5 +21,8 @@ namespace StoreApp.Data.UnitOfWorks
 
         IOrderRepository orderRepository;
         public IOrderRepository OrderRepository { get { return orderRepository ??= new OrderRepository(DbContext()); } }
+
+        ICustomerRepository customerRepository;
+        public ICustomerRepository CustomerRepository { get { return customerRepository ??= new CustomerRepository(DbContext()); } }
     }
 }

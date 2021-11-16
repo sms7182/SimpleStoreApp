@@ -9,5 +9,7 @@ namespace StoreApp.Domain.IDataAccess
     {
         IItemRepository ItemRepository { get; }
         IOrderRepository OrderRepository { get; }
+
+        ICustomerRepository CustomerRepository { get; }
     }
 }
