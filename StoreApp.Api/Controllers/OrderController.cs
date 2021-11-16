@@ -45,5 +45,15 @@ namespace StoreApp.Api.Controllers
             return result;
         }
 
+        [HttpPost("sendOrder")]
+        public async Task<ActionResult<SendOrderResDto>> SendOrder([FromBody] SendOrderReqDto orderRequestDto)
+        {
+            var result = await mediator.Send(new SendOrderCommand()
+            {
+                RequestDto = orderRequestDto
+            });
+            return result;
+        }
+
     }
 }

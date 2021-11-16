@@ -13,6 +13,8 @@ namespace StoreApp.Domain.BusinessEntities.Orders
         public decimal Price { get;private set; }
         public decimal? Discount { get;private set; }
         public DiscountType? DiscountType { get;private set; }
+        public OrderStatus Status { get;private set; }
+        public DateTime? SendDate { get; private set; }
         public List<OrderItem> OrderItems { get;private set; }
 
         private Order()
@@ -22,7 +24,10 @@ namespace StoreApp.Domain.BusinessEntities.Orders
 
         public static Order CreateInstance()
         {
-            return new Order();
+            return new Order()
+            {
+                Status=OrderStatus.Registeration
+            };
         }
         public void AddOrderItem(OrderItem orderItem)
         {
@@ -52,6 +57,12 @@ namespace StoreApp.Domain.BusinessEntities.Orders
         {
             DiscountType = discountType;
             Discount = discount;
+        }
+
+        public void SetStatus(OrderStatus sendStatus)
+        {
+            Status = sendStatus;
+            SendDate = DateTime.UtcNow;
         }
 
         public void CustomerValidate()

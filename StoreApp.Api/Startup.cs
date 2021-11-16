@@ -39,6 +39,9 @@ namespace StoreApp.Api
             services.AddScoped<ICreateItemService, CreateItemService>();
             services.AddScoped<ICreateOrderService, CreateOrderService>();
             services.AddScoped<IUpdateItemService, UpdateItemService>();
+            services.AddScoped<ISendOrderService, SendBreakableOrderService>();
+            services.AddScoped<ISendOrderService, SendNormalOrderService>();
+            services.AddScoped<ISendOrderServiceBuilder, SendOrderServiceBudiler>();
 
             services.AddApplicationServices(Configuration);
             services.AddCors(options =>

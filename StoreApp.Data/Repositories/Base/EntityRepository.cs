@@ -14,14 +14,14 @@ namespace StoreApp.Data.Repositories.Base
    
     public abstract class EntityRepository<T> : IGenericRepository<T> where T : AggregateEntity, IEntity
     {
-        DbContext dbContext;
-        public EntityRepository(DbContext _dbContext)
+        protected DbContext _dbContext;
+        public EntityRepository(DbContext dbContext)
         {
-            dbContext = _dbContext;
+            _dbContext = dbContext;
         }
         public async Task<bool> Add(T entity)
         {
-            var saved = await dbContext.AddAsync(entity);
+            var saved = await _dbContext.AddAsync(entity);
             return saved != null;
         }
 
@@ -39,7 +39,7 @@ namespace StoreApp.Data.Repositories.Base
 
         public async Task<IQueryable<T>> Find(Expression<Func<T, bool>> predicate)
         {
-            var entities = await Task.Run(() => dbContext.Set<T>().AsNoTracking().Where(d => !d.IsDeleted).Where(predicate));
+            var entities = await Task.Run(() => _dbContext.Set<T>().AsNoTracking().Where(d => !d.IsDeleted).Where(predicate));
             return entities;
         }
 
@@ -56,13 +56,13 @@ namespace StoreApp.Data.Repositories.Base
 
         public async Task<T> GetById(Guid id)
         {
-            return await dbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(d => !d.IsDeleted && d.Id == id);
+            return await _dbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(d => !d.IsDeleted && d.Id == id);
         }
 
 
         public async Task<bool> Update(T entity)
         {
-            var updatedentity = dbContext.Set<T>().Update(entity);
+            var updatedentity = _dbContext.Set<T>().Update(entity);
             return updatedentity != null;
         }
     }
